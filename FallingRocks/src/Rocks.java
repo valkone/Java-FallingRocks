@@ -1,73 +1,31 @@
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.Random;
 
-import javax.swing.JOptionPane;
+public class Rocks extends Canvas  {
 
-public class Rocks extends Canvas implements Runnable {
-
-	private Thread rocksThread;
-	public LinkedList<Box> rocks;
-	private Graphics rockGraphics;
+	public ArrayList<Box> rocks;
 	public int rockCounter = 0;
-	public Box b;
-	
-
-	public boolean rockFall = false;
-
-	public void paint(Graphics g) {
-		rockGraphics = g.create();
-
-		if (rocksThread == null) {
-			rocksThread = new Thread(this);
-			rocksThread.start();
-		}
-
-	}
+	private static Random rand = new Random();
 
 	public Rocks() {
-		rockFall = true;
-		rocks = new LinkedList<>();
-		Random rand = new Random();
-		int n = rand.nextInt(19);
-		Collections.addAll(rocks, new Box(5, 25));
-
+		rocks = new ArrayList<Box>();
 	}
 
 	public void tick() {
-
-		
-		
-
 		int counter = 0;
 		this.rockCounter++;
 		if (this.rockCounter > 0) {
-			Random rand = new Random();
 			int n = rand.nextInt(19);
 			rocks.add(new Box(n, 0));
 			this.rockCounter = 0;
-
 		}
+		
 		for (Box box : rocks) {
 			rocks.set(counter, new Box(box.x, box.y + 1));
 			counter++;
-		}
-	}
-
-	public void run() {
-		while (true) {
-			// drawRocks(rockGraphics);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 	}
 

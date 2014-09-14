@@ -4,12 +4,11 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 
 
-public class GameApp extends Applet{
+public class GameApp extends Applet {
 	public Game game;
 	InputHeandler iHeandler;
 	
-	public void init(){
-;		
+	public void init(){	
 		game = new Game();
 		game.setBackground(Color.gray);
 		game.setPreferredSize(new Dimension(400,600));

@@ -32,16 +32,16 @@ public class Ship {
 	}
 	
 	public void tick(){
-		
 		for (Box a : Game.rocks.rocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
-					(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
+				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				//Game.threadSpeed = 123123;
 				 JOptionPane.showMessageDialog(null, "GameOver");
 				 Game.setRunning(false);
 				 
 			}
 		}
+		
 		body.set(0, new Box(this.topX, this.topY));
 		body.set(1, new Box(this.bottomX, this.bottomY));
 	}
