@@ -1,27 +1,22 @@
 package fallingRocks;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-
 import javax.swing.JOptionPane;
 
-
 public class Ship {
-	public LinkedList<Box> body;
+	public ArrayList<Box> body;
 	
 	private int topX,topY,bottomX,bottomY;
 	
 	public Ship(){
-		body = new LinkedList<>();
+		body = new ArrayList<Box>();
 		this.topX = 9;
 		this.topY = 24;
 		this.bottomX = 9;
 		this.bottomY = 25;
-		Collections.addAll(body, 
-				new Box(this.topX,this.topY),
-				new Box(this.bottomX,this.bottomY)
-				);
+		Collections.addAll(body, new Box(this.topX,this.topY), new Box(this.bottomX,this.bottomY));
 	}
 	
 	public void drawShip(Graphics g){
@@ -36,10 +31,8 @@ public class Ship {
 		for (Box a : Game.rocks.rocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
-				//Game.threadSpeed = 123123;
 				 JOptionPane.showMessageDialog(null, "GameOver");
-				 Game.setRunning(false);
-				 
+				 Game.gameRunning = false;
 			}
 		}
 		

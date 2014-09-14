@@ -28,7 +28,7 @@ public class Rocks extends Canvas  {
 		for (int i = 0; i < rocks.size(); i++) {
 			rocks.set(i, new Box(rocks.get(i).x, rocks.get(i).y + 1));
 			
-			if (rocks.get(i).y == 30) { // TODO: find out why 30 works ????
+			if (rocks.get(i).y == Game.END_OF_FIELD) { // TODO: find out why 30 works ????
 				rocks.remove(i);
 			}
 		}

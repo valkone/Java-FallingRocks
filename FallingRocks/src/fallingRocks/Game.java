@@ -1,16 +1,15 @@
 package fallingRocks;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 
 public class Game extends Canvas implements Runnable{
 	
+	public static int END_OF_FIELD = 30;
 	public static Ship ship;
 	public static Rocks rocks;
-	public Test test;
 	public static Graphics globalGraphics;
 	private Thread gameThread;
-	public static boolean gameRunning = 	false;
+	public static boolean gameRunning = false;
 	public static int threadSpeed = 10;
 	
 	public Game(){
@@ -53,9 +52,5 @@ public class Game extends Canvas implements Runnable{
 		g.clearRect(0, 0, 400, 600);
 		ship.drawShip(globalGraphics);
 		rocks.drawRocks(globalGraphics);
-	}
-	
-	public static void setRunning(boolean bool){
-		gameRunning = bool;
 	}
 }
