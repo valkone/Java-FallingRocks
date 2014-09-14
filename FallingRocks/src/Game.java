@@ -1,0 +1,60 @@
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+
+
+public class Game extends Canvas implements Runnable{
+	
+	public static Ship ship;
+	public static Rocks rocks;
+	public Test test;
+	
+	public static Graphics globalGraphics;
+	private Thread gameThread;
+	
+	private boolean gameRunning = false;
+	public static int threadSpeed = 10;
+	
+	public Game(){
+		ship = new Ship();
+		rocks = new Rocks();
+			}
+	
+	public void paint(Graphics g){
+		globalGraphics = g.create();
+		
+		if(gameThread == null){
+			gameThread = new Thread(this);
+			gameThread.start();
+			gameRunning = true;
+		}
+	}
+	
+	public void run(){
+		int counter = 0;
+		while(gameRunning){
+			counter++;
+			ship.tick();
+			if(counter>10){
+				rocks.tick();
+				counter = 0;
+			}
+			render(globalGraphics);
+
+			try {
+				Thread.sleep(this.threadSpeed);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+
+	
+	public void render(Graphics g){
+		g.clearRect(0, 0, 400, 600);
+		ship.drawShip(globalGraphics);
+		rocks.drawRocks(globalGraphics);
+	}
+}
