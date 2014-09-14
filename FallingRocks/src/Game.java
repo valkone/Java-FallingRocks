@@ -7,7 +7,6 @@ public class Game extends Canvas implements Runnable{
 	
 	public static Ship ship;
 	public static Rocks rocks;
-	public Test test;
 	
 	public static Graphics globalGraphics;
 	private Thread gameThread;
