@@ -12,7 +12,7 @@ public class Game extends Canvas implements Runnable{
 	public static Graphics globalGraphics;
 	private Thread gameThread;
 	
-	public static boolean gameRunning = false;
+	private boolean gameRunning = false;
 	public static int threadSpeed = 10;
 	
 	public Game(){
@@ -56,9 +56,5 @@ public class Game extends Canvas implements Runnable{
 		g.clearRect(0, 0, 400, 600);
 		ship.drawShip(globalGraphics);
 		rocks.drawRocks(globalGraphics);
-	}
-	
-	public static void setRunning(boolean bool){
-		gameRunning=bool;
 	}
 }

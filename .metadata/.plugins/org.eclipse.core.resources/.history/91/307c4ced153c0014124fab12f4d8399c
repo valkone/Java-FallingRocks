@@ -44,7 +44,7 @@ public class Rocks extends Canvas implements Runnable {
 		for (Box a : rocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 					(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
-				//Game.threadSpeed = 123123;
+				Game.threadSpeed = 123123;
 				 JOptionPane.showMessageDialog(null, "GameOver");
 				 Game.setRunning(false);
 				 
