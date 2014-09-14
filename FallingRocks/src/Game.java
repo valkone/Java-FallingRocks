@@ -28,14 +28,14 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	public void run() {
-		int counter = 0;
+		int rockCreationDelay = 0;
 		while(gameRunning) {
-			counter++;
+			rockCreationDelay++;
 			ship.tick();
 			
-			if(counter > 20) {
+			if(rockCreationDelay > 20) {
 				rocks.tick();
-				counter = 0;
+				rockCreationDelay = 0;
 			}
 			
 			render(globalGraphics);

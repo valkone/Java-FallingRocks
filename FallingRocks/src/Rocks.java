@@ -7,7 +7,7 @@ import java.util.Random;
 public class Rocks extends Canvas  {
 
 	public ArrayList<Box> rocks;
-	private int MAX_ROCKS_IN_GAME = 30;
+	private int MAX_ROCKS_IN_GAME = 25;
 	private static Random rand = new Random();
 
 	public Rocks() {
@@ -26,6 +26,10 @@ public class Rocks extends Canvas  {
 		// Move all rocks.
 		for (int i = 0; i < rocks.size(); i++) {
 			rocks.set(i, new Box(rocks.get(i).x, rocks.get(i).y + 1));
+			
+			if (rocks.get(i).y == 30) { // TODO: find out why 30 works ????
+				rocks.remove(i);
+			}
 		}
 	}
 	
