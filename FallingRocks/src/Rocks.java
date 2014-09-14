@@ -7,26 +7,30 @@ import java.util.Random;
 public class Rocks extends Canvas  {
 
 	public ArrayList<Box> rocks;
-	public int rockCounter = 0;
+	private int MAX_ROCKS_IN_GAME = 30;
 	private static Random rand = new Random();
 
 	public Rocks() {
 		rocks = new ArrayList<Box>();
+		rocks.add(new Box(rand.nextInt(19), 0));
 	}
 
 	public void tick() {
-		int counter = 0;
-		this.rockCounter++;
-		if (this.rockCounter > 0) {
-			int n = rand.nextInt(19);
-			rocks.add(new Box(n, 0));
-			this.rockCounter = 0;
+		int rockCounter = rocks.size();
+		
+		// Create rocks if we have less than the Max amount of rocks.
+		if (rockCounter != MAX_ROCKS_IN_GAME) {
+			createRndRock();
 		}
 		
-		for (Box box : rocks) {
-			rocks.set(counter, new Box(box.x, box.y + 1));
-			counter++;
+		// Move all rocks.
+		for (int i = 0; i < rocks.size(); i++) {
+			rocks.set(i, new Box(rocks.get(i).x, rocks.get(i).y + 1));
 		}
+	}
+	
+	public void createRndRock() {
+		this.rocks.add(new Box(rand.nextInt(19), 0));
 	}
 
 	public void drawRocks(Graphics a) {

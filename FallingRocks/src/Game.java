@@ -27,13 +27,13 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
-	public void run(){
+	public void run() {
 		int counter = 0;
-		while(gameRunning){
+		while(gameRunning) {
 			counter++;
 			ship.tick();
 			
-			if(counter > 10){
+			if(counter > 20) {
 				rocks.tick();
 				counter = 0;
 			}
