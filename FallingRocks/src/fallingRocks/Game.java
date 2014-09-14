@@ -1,3 +1,4 @@
+package fallingRocks;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -9,7 +10,7 @@ public class Game extends Canvas implements Runnable{
 	public Test test;
 	public static Graphics globalGraphics;
 	private Thread gameThread;
-	public static boolean gameRunning = false;
+	public static boolean gameRunning = 	false;
 	public static int threadSpeed = 10;
 	
 	public Game(){

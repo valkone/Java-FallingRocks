@@ -1,8 +1,8 @@
+package fallingRocks;
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 
 public class GameApp extends Applet {
 	public Game game;
