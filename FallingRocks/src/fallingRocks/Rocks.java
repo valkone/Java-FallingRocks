@@ -30,6 +30,8 @@ public class Rocks extends Canvas  {
 			
 			if (rocks.get(i).y == Game.END_OF_FIELD) { // TODO: find out why 30 works ????
 				rocks.remove(i);
+				
+				
 			}
 		}
 	}

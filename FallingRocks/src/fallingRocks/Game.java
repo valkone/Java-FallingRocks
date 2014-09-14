@@ -30,15 +30,27 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
+	
 	public void run() {
 		int rockCreationDelay = 0;
+		int rockLevels = 35;
+		int i = 0;
+		int currentLevel = 1;
+		System.out.println("Level 1");
 		while(gameRunning) {
 			rockCreationDelay++;
 			ship.tick();
 			
-			if(rockCreationDelay > 20) {
+			if(rockCreationDelay > rockLevels) {
 				rocks.tick();
 				rockCreationDelay = 0;
+				i++;
+				if (i == 50) {
+					rockLevels--;
+					currentLevel++;
+					System.out.println("Level up " + currentLevel);
+					i = 0;
+				}	
 			}
 			
 			render(globalGraphics);
