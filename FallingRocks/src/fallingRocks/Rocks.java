@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Rocks extends Canvas  {
 
-	public ArrayList<Box> rocks;
+	public static ArrayList<Box> rocks;
 	private int MAX_ROCKS_IN_GAME = 25;
 	private static Random rand = new Random();
 

@@ -1,0 +1,42 @@
+package fallingRocks;
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class GameApp extends Applet implements ActionListener {
+	public Game game;
+	boolean start=false;
+	InputHeandler iHeandler;
+	Button newGame;
+	public void init(){
+		newGame = new Button("New Game");
+		this.add(newGame);
+		newGame.addActionListener(this);
+		
+	}
+	
+	public void paint(Graphics g){
+		this.setSize(new Dimension(450,650));
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+			startGame();
+		
+	}
+	
+	private void startGame (){
+		game = new Game();
+		game.setBackground(Color.gray);
+		game.setPreferredSize(new Dimension(400,600));
+		game.setVisible(true);
+		game.setFocusable(true);
+		this.add(game);
+		this.setVisible(true);
+		iHeandler = new InputHeandler(game);
+	}
+}
