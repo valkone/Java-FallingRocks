@@ -48,8 +48,7 @@ public class Game extends Canvas implements Runnable{
 				fastrocks.tick();
 				if (currentLevel > 10) {
 					fastrocks.tick();
-				}
-
+				}				
 				rockCreationDelay = 0;
 				i++;
 				if (i == 50) {
