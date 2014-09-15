@@ -12,21 +12,17 @@ public class GameApp extends Applet implements ActionListener {
 	public Game game;
 	boolean start=false;
 	InputHeandler iHeandler;
-	Button newGame,bestResult,harder;
+	Button newGame,bestResult;
 	Label test;
 	public void init(){
 		newGame = new Button("New Game");
 		bestResult = new Button("Best Result");
-		harder = new Button("Increase Difficulty");
 		this.add(newGame);
 		this.add(bestResult);
 		newGame.addActionListener(this);
 		bestResult.addActionListener(this);
-		
-		harder.addActionListener(this);
 		test = new Label("No best result");
 		this.add(test);
-		this.add(harder);
 		
 	}
 	
@@ -44,9 +40,9 @@ public class GameApp extends Applet implements ActionListener {
 		}
 		if(e.getSource()==bestResult){
 			test.setText("Result");//TODO add best result functionality
-		}
-		if(e.getSource()==harder){
-			Rocks.MAX_ROCKS_IN_GAME+=5;//Increase the rocks, currently in the game
+			destroy();
+			repaint();
+			init();
 		}
 	}
 	
