@@ -10,9 +10,9 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
 public class SuperFastRocks extends Canvas  {
 
 	public static ArrayList<Box> superfastrocks;
-	private int MAX_SUPERFASTROCKS_IN_GAME = 3;
+	private int MAX_SUPERFASTROCKS_IN_GAME = 5;
 	private static Random rand = new Random();
-	
+	private Thread gameThread;
 	public SuperFastRocks() {
 		int superfastRocksLevel = 10;
 		superfastrocks = new ArrayList<Box>();

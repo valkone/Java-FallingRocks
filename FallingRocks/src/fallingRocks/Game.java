@@ -8,6 +8,7 @@ public class Game extends Canvas implements Runnable{
 	public static Ship ship;
 	public static Rocks rocks;
 	public static FastRocks fastrocks;
+	public static SuperFastRocks superfastrocks;
 	public static Graphics globalGraphics;
 	private Thread gameThread;
 	public static boolean gameRunning = false;
@@ -17,6 +18,7 @@ public class Game extends Canvas implements Runnable{
 		ship = new Ship();
 		rocks = new Rocks();
 		fastrocks = new FastRocks();
+		superfastrocks = new SuperFastRocks();
 		
 	}
 	
@@ -46,8 +48,12 @@ public class Game extends Canvas implements Runnable{
 			if(rockCreationDelay > rockLevels) {
 				rocks.tick();
 				fastrocks.tick();
+				superfastrocks.tick();
+				superfastrocks.tick();
+				
 				if (currentLevel > 10) {
 					fastrocks.tick();
+					superfastrocks.tick();
 				}				
 				rockCreationDelay = 0;
 				i++;
@@ -56,6 +62,7 @@ public class Game extends Canvas implements Runnable{
 					currentLevel++;
 					System.out.println("Level up " + currentLevel);
 					GameApp.test.setText("Level " + currentLevel);
+					superfastrocks.tick();
 					i = 0;
 				}	
 			}
@@ -75,5 +82,8 @@ public class Game extends Canvas implements Runnable{
 		ship.drawShip(globalGraphics);
 		rocks.drawRocks(globalGraphics);
 		fastrocks.drawfastRocks(globalGraphics);
+		superfastrocks.drawSuperfastRocks(globalGraphics);
+		
+		
 	}
 }

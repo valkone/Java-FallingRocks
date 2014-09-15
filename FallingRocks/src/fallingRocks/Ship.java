@@ -35,6 +35,20 @@ public class Ship {
 				 Game.gameRunning = false;
 			}
 		}
+		for (Box a : Game.fastrocks.fastrocks) {
+			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
+				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
+				 JOptionPane.showMessageDialog(null, "GameOver");
+				 Game.gameRunning = false;
+			}
+		}
+		for (Box a : Game.superfastrocks.superfastrocks) {
+			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
+				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
+				 JOptionPane.showMessageDialog(null, "GameOver");
+				 Game.gameRunning = false;
+			}
+		}
 		
 		body.set(0, new Box(this.topX, this.topY));
 		body.set(1, new Box(this.bottomX, this.bottomY));
