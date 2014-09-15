@@ -12,23 +12,22 @@ public class GameApp extends Applet implements ActionListener {
 	public Game game;
 	boolean start=false;
 	InputHeandler iHeandler;
-	
 	Button newGame,bestResult,harder;
-	public static Label test;
+	Label test;
 	public void init(){
 		newGame = new Button("New Game");
 		bestResult = new Button("Best Result");
 		harder = new Button("Increase Difficulty");
-		
 		this.add(newGame);
 		this.add(bestResult);
 		newGame.addActionListener(this);
 		bestResult.addActionListener(this);
 		
 		harder.addActionListener(this);
-		test = new Label("Level 0");
+		test = new Label("No best result");
 		this.add(test);
 		this.add(harder);
+		//startGame();
 		
 	}
 	

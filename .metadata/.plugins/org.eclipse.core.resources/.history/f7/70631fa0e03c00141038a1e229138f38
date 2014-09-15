@@ -55,7 +55,6 @@ public class Game extends Canvas implements Runnable{
 					rockLevels--;
 					currentLevel++;
 					System.out.println("Level up " + currentLevel);
-					GameApp.test.setText("Level " + currentLevel);
 					i = 0;
 				}	
 			}

@@ -14,7 +14,7 @@ public class GameApp extends Applet implements ActionListener {
 	InputHeandler iHeandler;
 	
 	Button newGame,bestResult,harder;
-	public static Label test;
+	Label test;
 	public void init(){
 		newGame = new Button("New Game");
 		bestResult = new Button("Best Result");
@@ -26,7 +26,7 @@ public class GameApp extends Applet implements ActionListener {
 		bestResult.addActionListener(this);
 		
 		harder.addActionListener(this);
-		test = new Label("Level 0");
+		test = new Label("No best result");
 		this.add(test);
 		this.add(harder);
 		
