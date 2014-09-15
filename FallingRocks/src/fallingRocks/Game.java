@@ -15,10 +15,10 @@ public class Game extends Canvas implements Runnable{
 	public Game(){
 		ship = new Ship();
 		rocks = new Rocks();
-		score = new HighScore(20, "asd");
+		
 	}
 	
-	public HighScore score; 
+	
 	
 	public void paint(Graphics g){
 		globalGraphics = g.create();

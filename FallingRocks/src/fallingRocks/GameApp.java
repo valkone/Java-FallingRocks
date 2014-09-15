@@ -37,9 +37,11 @@ public class GameApp extends Applet implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==newGame){
+			Game.gameRunning = true;
 			if(start==false){
 				startGame();
 				start=true;
+				
 			}
 		}
 		if(e.getSource()==bestResult){
