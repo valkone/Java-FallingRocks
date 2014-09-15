@@ -8,7 +8,7 @@ import java.util.Random;
 public class Rocks extends Canvas  {
 
 	public static ArrayList<Box> rocks;
-	private int MAX_ROCKS_IN_GAME = 25;
+	private int MAX_ROCKS_IN_GAME = 50;
 	private static Random rand = new Random();
 
 	public Rocks() {
@@ -21,6 +21,7 @@ public class Rocks extends Canvas  {
 		
 		// Create rocks if we have less than the Max amount of rocks.
 		if (rockCounter != MAX_ROCKS_IN_GAME) {
+			
 			createRndRock();
 		}
 		
