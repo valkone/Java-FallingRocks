@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class GameApp extends Applet implements ActionListener {
 	public Game game;
+	boolean start=false;
 	InputHeandler iHeandler;
 	
 	Button newGame,bestResult,harder;
@@ -18,24 +19,16 @@ public class GameApp extends Applet implements ActionListener {
 		newGame = new Button("New Game");
 		bestResult = new Button("Best Result");
 		harder = new Button("Increase Difficulty");
+		
 		this.add(newGame);
 		this.add(bestResult);
 		newGame.addActionListener(this);
 		bestResult.addActionListener(this);
+		
 		harder.addActionListener(this);
 		test = new Label("Level 1");
 		this.add(test);
 		this.add(harder);
-		
-		game = new Game();
-		game.setBackground(Color.gray);
-		game.setLocation(10, 500);
-		game.setPreferredSize(new Dimension(400,600));
-		game.setVisible(true);
-		game.setFocusable(true);
-		this.add(game);
-		this.setVisible(true);
-		iHeandler = new InputHeandler(game);
 		
 	}
 	
@@ -47,12 +40,18 @@ public class GameApp extends Applet implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==newGame){
 			Game.gameRunning = true;
-			Game.ship=new Ship();
-			Game.rocks=new Rocks();
-			Game.fastrocks=new FastRocks();
-			Game.superfastrocks=new SuperFastRocks();
-			Game.threadSpeed=10;
-			test.setText("Level 1");
+			if(start==false){
+				startGame();
+				start=true;
+			}
+			else{
+				Game.ship=new Ship();
+				Game.rocks=new Rocks();
+				Game.fastrocks=new FastRocks();
+				Game.superfastrocks=new SuperFastRocks();
+				Game.threadSpeed=10;
+				test.setText("Level 1");
+			}
 		}
 		if(e.getSource()==bestResult){
 			test.setText("Result");//TODO add best result functionality
@@ -63,4 +62,15 @@ public class GameApp extends Applet implements ActionListener {
 		}
 	}
 	
+	private void startGame (){
+		game = new Game();
+		game.setBackground(Color.gray);
+		game.setLocation(10, 500);
+		game.setPreferredSize(new Dimension(400,600));
+		game.setVisible(true);
+		game.setFocusable(true);
+		this.add(game);
+		this.setVisible(true);
+		iHeandler = new InputHeandler(game);
+	}
 }

@@ -63,4 +63,7 @@ public class GameApp extends Applet implements ActionListener {
 		}
 	}
 	
+	private void startGame (){
+		
+	}
 }
