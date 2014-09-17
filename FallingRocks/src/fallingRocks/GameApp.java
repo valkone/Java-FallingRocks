@@ -39,6 +39,7 @@ public class GameApp extends Applet implements ActionListener {
 		
 	}
 	
+	
 	public void paint(Graphics g){
 		this.setSize(new Dimension(500,700));
 	}

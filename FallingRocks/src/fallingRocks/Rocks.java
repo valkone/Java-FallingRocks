@@ -8,7 +8,7 @@ import java.util.Random;
 public class Rocks extends Canvas  {
 
 	public static ArrayList<Box> rocks;
-	private int MAX_ROCKS_IN_GAME = 50;
+	private int MAX_ROCKS_IN_GAME = 60;
 	private static Random rand = new Random();
 
 	public Rocks() {
@@ -30,9 +30,7 @@ public class Rocks extends Canvas  {
 			rocks.set(i, new Box(rocks.get(i).x, rocks.get(i).y + 1));
 			
 			if (rocks.get(i).y == Game.END_OF_FIELD) { // TODO: find out why 30 works ????
-				rocks.remove(i);
-				
-				
+				rocks.remove(i);	
 			}
 		}
 	}

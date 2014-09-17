@@ -1,6 +1,7 @@
 package fallingRocks;
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.io.InputStream;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -42,19 +43,27 @@ public class Game extends Canvas implements Runnable{
 		currentLevel = 1;
 		System.out.println("Level 1");
 		while(gameRunning) {
+			
 			rockCreationDelay++;
 			ship.tick();
 			
 			if(rockCreationDelay > rockLevels) {
 				rocks.tick();
-				fastrocks.tick();
-				superfastrocks.tick();
-				superfastrocks.tick();
+				for (int j = 0; j < 2; j++) {
+					fastrocks.tick();
+				}
+				for (int j = 0; j < 3; j++) {
+					superfastrocks.tick();
+				}
 				
+				if (currentLevel > 5) {
+					fastrocks.tick();
+					superfastrocks.tick();
+				}
 				if (currentLevel > 10) {
 					fastrocks.tick();
 					superfastrocks.tick();
-				}				
+				}
 				rockCreationDelay = 0;
 				i++;
 				if (i == 50) {
