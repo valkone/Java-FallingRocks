@@ -14,9 +14,9 @@ public class SuperFastRocks extends Canvas  {
 	private static Random rand = new Random();
 	private Thread gameThread;
 	public SuperFastRocks() {
-		
+		int superfastRocksLevel = 10;
 		superfastrocks = new ArrayList<Box>();
-		superfastrocks.add(new Box(rand.nextInt(19), 0));
+		superfastrocks.add(new Box(rand.nextInt(superfastRocksLevel), 0));
 		
 		
 	}
@@ -26,7 +26,8 @@ public class SuperFastRocks extends Canvas  {
 		
 		// Create rocks if we have less than the Max amount of rocks.
 		if (rockCounter != MAX_SUPERFASTROCKS_IN_GAME) {
-			createRndRock();	
+			
+			createRndRock();
 		}
 		
 		// Move all rocks.

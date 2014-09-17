@@ -30,26 +30,52 @@ public class Ship {
 		for (Box a : Game.rocks.rocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
-				 JOptionPane.showMessageDialog(null, "GameOver");
+				Game.attempts--; 
+				if(Game.attempts == 1){
+				JOptionPane.showMessageDialog(null, "You have "+Game.attempts
+				 		+" attempt remaining");
 				 HighScore.saveScore();
-				 Game.gameThread.suspend();
+				 Game.gameThread.suspend();}
+				else { JOptionPane.showMessageDialog(null,"You have "+Game.attempts
+				 		+" attempts remaining");
+			 Game.gameThread.suspend();}
 			}
 		}
 		for (Box a : Game.fastrocks.fastrocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
-				 JOptionPane.showMessageDialog(null, "GameOver");
-				 HighScore.saveScore();
+				Game.attempts--; 
+				if(Game.attempts == 1){
+				JOptionPane.showMessageDialog(null,"You have "+Game.attempts
+					 		+" attempt remaining");
+				 Game.gameThread.suspend();}
+				else {
+					JOptionPane.showMessageDialog(null,"You have "+Game.attempts
+					 		+" attempts remaining");
 				 Game.gameThread.suspend();
+				}
 			}
 		}
 		for (Box a : Game.superfastrocks.superfastrocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
-				 JOptionPane.showMessageDialog(null, "GameOver");
-				 HighScore.saveScore();
+				Game.attempts--; 
+				if(Game.attempts == 1){
+				JOptionPane.showMessageDialog(null,"You have "+Game.attempts
+					 		+" attempt remaining");
+				 Game.gameThread.suspend();}
+				else {
+				JOptionPane.showMessageDialog(null,"You have "+Game.attempts
+					 		+" attempts remaining");
 				 Game.gameThread.suspend();
+				}
 			}
+		}{ if (Game.attempts == 0){
+		     JOptionPane.showMessageDialog(null, "Game Over\n"
+		     		+ "You have achieved "+Game.score+" points.");
+			 HighScore.saveScore();
+			 Game.gameThread.suspend();
+		}
 		}
 		
 		body.set(0, new Box(this.topX, this.topY));

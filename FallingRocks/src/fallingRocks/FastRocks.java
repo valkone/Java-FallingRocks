@@ -10,7 +10,7 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
 public class FastRocks extends Canvas  {
 
 	public static ArrayList<Box> fastrocks;
-	private int MAX_FASTROCKS_IN_GAME = 5;
+	private int MAX_FASTROCKS_IN_GAME = 10;
 	private static Random rand = new Random();
 	
 	public FastRocks() {

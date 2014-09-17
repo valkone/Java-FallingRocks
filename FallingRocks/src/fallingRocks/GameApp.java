@@ -4,7 +4,9 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Label;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +15,9 @@ public class GameApp extends Applet implements ActionListener {
 	InputHeandler iHeandler;
 	Button newGame,bestResult,harder;
 	boolean flag=false;
-	public static Label test;
+	public static Label levelTxt;
+	public static final int GAME_HEIGHT = 600;
+	
 	public void init(){
 		newGame = new Button("New Game");
 		bestResult = new Button("Best Level");
@@ -23,27 +27,24 @@ public class GameApp extends Applet implements ActionListener {
 		newGame.addActionListener(this);
 		bestResult.addActionListener(this);
 		harder.addActionListener(this);
-		test = new Label("Level 1");
-		this.add(test);
+		levelTxt = new Label("Level 1");
+		this.add(levelTxt);
 		this.add(harder);
 		
 		game = new Game();
 		game.setBackground(Color.gray);
 		game.setLocation(10, 500);
-		game.setPreferredSize(new Dimension(400,600));
+		game.setPreferredSize(new Dimension(400,GAME_HEIGHT+25));
 		game.setVisible(true);
 		game.setFocusable(true);
 		this.add(game);
 		this.setVisible(true);
 		iHeandler = new InputHeandler(game);
-		
 	}
-	
 	
 	public void paint(Graphics g){
 		this.setSize(new Dimension(500,700));
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==newGame){
@@ -54,17 +55,16 @@ public class GameApp extends Applet implements ActionListener {
 			Game.superfastrocks=new SuperFastRocks();
 			Game.threadSpeed=10;
 			Game.gameThread.resume();
-			test.setText("Level 1");
-			Game.currentLevel=1;
+			levelTxt.setText("Level 1");
 		}
 		if(e.getSource()==bestResult){
 			if(bestResult.getLabel().contentEquals("Best Result")|| flag==false){
 				flag=true;
-				test.setText("Best Level: "+Integer.toString(HighScore.getScore()));
+				levelTxt.setText("Best Level: "+Integer.toString(HighScore.getScore()));
 				bestResult.setLabel("Current Result");
 			}
 			else{
-				test.setText("Level: "+Game.currentLevel);
+				levelTxt.setText("Level: "+Game.currentLevel);
 				bestResult.setLabel("Best Result");
 			}
 		}
