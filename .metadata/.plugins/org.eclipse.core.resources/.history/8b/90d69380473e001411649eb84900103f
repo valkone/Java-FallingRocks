@@ -32,6 +32,7 @@ public class Ship {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
+				 //Game.gameRunning = false;
 				 Game.gameThread.suspend();
 			}
 		}
@@ -39,14 +40,14 @@ public class Ship {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
-				 Game.gameThread.suspend();
+				 Game.gameRunning = false;
 			}
 		}
 		for (Box a : Game.superfastrocks.superfastrocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
-				 Game.gameThread.suspend();
+				 Game.gameRunning = false;
 			}
 		}
 		

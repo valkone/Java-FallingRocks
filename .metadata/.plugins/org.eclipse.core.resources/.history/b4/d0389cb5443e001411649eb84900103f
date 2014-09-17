@@ -52,7 +52,6 @@ public class GameApp extends Applet implements ActionListener {
 			Game.fastrocks=new FastRocks();
 			Game.superfastrocks=new SuperFastRocks();
 			Game.threadSpeed=10;
-			Game.gameThread.resume();
 			test.setText("Level 1");
 		}
 		if(e.getSource()==bestResult){
