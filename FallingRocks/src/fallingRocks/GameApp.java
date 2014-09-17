@@ -11,12 +11,12 @@ import java.awt.event.ActionListener;
 public class GameApp extends Applet implements ActionListener {
 	public Game game;
 	InputHeandler iHeandler;
-	
 	Button newGame,bestResult,harder;
+	boolean flag=false;
 	public static Label test;
 	public void init(){
 		newGame = new Button("New Game");
-		bestResult = new Button("Best Result");
+		bestResult = new Button("Best Level");
 		harder = new Button("Increase Difficulty");
 		this.add(newGame);
 		this.add(bestResult);
@@ -56,7 +56,15 @@ public class GameApp extends Applet implements ActionListener {
 			test.setText("Level 1");
 		}
 		if(e.getSource()==bestResult){
-			test.setText("Result");//TODO add best result functionality
+			if(bestResult.getLabel().contentEquals("Best Result")|| flag==false){
+				flag=true;
+				test.setText("Best Level: "+Integer.toString(HighScore.getScore()));
+				bestResult.setLabel("Current Result");
+			}
+			else{
+				test.setText("Level: "+Game.currentLevel);
+				bestResult.setLabel("Best Result");
+			}
 		}
 		if(e.getSource()==harder){
 			if(Game.threadSpeed>0)

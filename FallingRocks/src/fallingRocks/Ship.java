@@ -26,12 +26,12 @@ public class Ship {
 					Box.BOX_SIZE, Box.BOX_SIZE);
 		}
 	}
-	
 	public void tick(){
 		for (Box a : Game.rocks.rocks) {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
+				 HighScore.saveScore();
 				 Game.gameThread.suspend();
 			}
 		}
@@ -39,6 +39,7 @@ public class Ship {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
+				 HighScore.saveScore();
 				 Game.gameThread.suspend();
 			}
 		}
@@ -46,6 +47,7 @@ public class Ship {
 			if((a.x == Game.ship.getTopX() && a.y == Game.ship.getTopY()) ||
 				(a.x == Game.ship.getBottomX() && a.y == Game.ship.getBottomY())){
 				 JOptionPane.showMessageDialog(null, "GameOver");
+				 HighScore.saveScore();
 				 Game.gameThread.suspend();
 			}
 		}

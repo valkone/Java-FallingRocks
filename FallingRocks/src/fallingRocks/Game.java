@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class Game extends Canvas implements Runnable{
 	
-	public static int END_OF_FIELD = 30;
+	public static int END_OF_FIELD = 30,currentLevel;
 	public static Ship ship;
 	public static Rocks rocks;
 	public static FastRocks fastrocks;
@@ -39,7 +39,7 @@ public class Game extends Canvas implements Runnable{
 		int rockCreationDelay = 0;
 		int rockLevels = 35;
 		int i = 0;
-		int currentLevel = 1;
+		currentLevel = 1;
 		System.out.println("Level 1");
 		while(gameRunning) {
 			rockCreationDelay++;
@@ -62,6 +62,7 @@ public class Game extends Canvas implements Runnable{
 					currentLevel++;
 					System.out.println("Level up " + currentLevel);
 					GameApp.test.setText("Level " + currentLevel);
+					HighScore.saveScore();
 					superfastrocks.tick();
 					i = 0;
 				}	

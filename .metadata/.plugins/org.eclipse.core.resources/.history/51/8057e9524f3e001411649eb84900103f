@@ -1,0 +1,42 @@
+package fallingRocks;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class HighScore {
+	static int score=getScore();
+	public static void saveScore(){
+			if(score<Game.currentLevel){
+				writeScore(Game.currentLevel);
+			}
+	}
+	
+	static void writeScore (int score){
+		try {
+			PrintWriter out = new PrintWriter("score.txt");
+			out.print(score);
+			out.close();
+		} catch (FileNotFoundException e) {
+			System.out.print("Error writing to score.txt");
+		}
+	}
+	
+	private static int getScore(){
+		try {
+			Scanner scan = new Scanner(new FileReader("score.txt"));
+			int i=scan.nextInt();
+			scan.close();
+			return i;
+		} catch (FileNotFoundException e) {
+			System.err.println("Error reading score.txt");
+			return -1;
+		}
+	}
+	
+}
