@@ -54,7 +54,6 @@ public class GameApp extends Applet implements ActionListener {
 			Game.threadSpeed=10;
 			Game.gameThread.resume();
 			test.setText("Level 1");
-			Game.currentLevel=1;
 		}
 		if(e.getSource()==bestResult){
 			if(bestResult.getLabel().contentEquals("Best Result")|| flag==false){

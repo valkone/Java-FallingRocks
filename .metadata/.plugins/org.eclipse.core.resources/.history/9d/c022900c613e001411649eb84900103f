@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javafx.print.Collation;
+
+
+public class _02SequencesOfEqualStrings {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		ArrayList<String> elements = new ArrayList<>();
+		scan.useDelimiter(" ");
+		elements.add(scan.next());
+		for (String element : elements) {
+			System.out.printf("|%s|\n",element);
+		}
+	}
+}

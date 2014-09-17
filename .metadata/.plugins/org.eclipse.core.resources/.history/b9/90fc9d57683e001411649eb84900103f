@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+
+public class _03LargestSequenceOfEqualStrings {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String[] elements = scan.nextLine().split(" ");
+		scan.close();
+		int counter=1,bestCount=1,elementToPrint=0;
+		for(int i=0;i<elements.length-1;i++){
+			if(elements[i].contentEquals(elements[i+1])){
+				counter++;
+				if(counter>bestCount){
+					elementToPrint=i;
+					bestCount=counter;
+				}
+			}
+			else
+				counter = 1;
+		}
+		for(int i=0;i<bestCount;i++)
+			System.out.printf("%s ",elements[bestCount]);
+		System.out.print(bestCount);
+	}
+}
