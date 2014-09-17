@@ -23,7 +23,7 @@ public class SuperFastRocks extends Canvas  {
 
 	public void tick() {
 		int rockCounter = superfastrocks.size();
-		int removeCounter = 0;
+		
 		// Create rocks if we have less than the Max amount of rocks.
 		if (rockCounter != MAX_SUPERFASTROCKS_IN_GAME) {
 			createRndRock();	
@@ -44,7 +44,7 @@ public class SuperFastRocks extends Canvas  {
 	}
 	
 	public void createRndRock() {
-		this.superfastrocks.add(new Box(rand.nextInt(30), 0));
+		this.superfastrocks.add(new Box(rand.nextInt(19), 0));
 	}
 
 	public void drawSuperfastRocks(Graphics a) {

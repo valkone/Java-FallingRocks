@@ -49,13 +49,11 @@ public class Game extends Canvas implements Runnable{
 			
 			if(rockCreationDelay > rockLevels) {
 				rocks.tick();
-				for (int j = 0; j < 2; j++) {
-					fastrocks.tick();
-				}
-				for (int j = 0; j < 3; j++) {
-					superfastrocks.tick();
-				}
-				
+				fastrocks.tick();
+				fastrocks.tick();
+				superfastrocks.tick();
+				superfastrocks.tick();
+				superfastrocks.tick();
 				if (currentLevel > 5) {
 					fastrocks.tick();
 					superfastrocks.tick();
